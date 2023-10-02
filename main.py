@@ -1,10 +1,12 @@
 from fastapi import FastAPI, status
 import redis
 import uvicorn
+from dotenv import dotenv_values
 
 
-conn = redis.Redis(host = '127.0.0.1', port = 6379, decode_responses = True)
-
+config = dotenv_values(".env")
+#conn = redis.Redis(host = config["host"], port = config["port"], decode_responses = True)
+conn = redis.from_url(f'redis://{config["host"]}:{config["port"]}')
 
 app = FastAPI()
 
@@ -21,4 +23,4 @@ def visit(id):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, port=8000, log_level="info")
+    uvicorn.run(app,host = config["host"], port = config['site_port'], log_level = config['log_level'])
