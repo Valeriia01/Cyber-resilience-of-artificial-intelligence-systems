@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  redis:
+    image: redis
+    command: redis-server /home/valeriia/Desktop/project/redis.conf
+    volumes:
+      - /home/valeriia/Desktop/project/redis.conf:/home/valeriia/Desktop/project/redis.conf
+
+  app:
+    build:
+      context: /home/valeriia/Desktop/project
+    env_file:
+      - /home/valeriia/Desktop/project/.env
+    restart: unless-stopped
+    ports: 
+      - 8000:8000
