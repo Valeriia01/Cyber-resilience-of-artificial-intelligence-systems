@@ -13,14 +13,17 @@ app = FastAPI()
 
 @app.get('/show/{web_host}')
 def show(web_host):
+    """function to display the number of visits"""
     return {conn.get(web_host)}
 
 
 @app.get('/visit/{web_host}')
 def visit(web_host):
+    """increment function"""
     conn.incr(web_host)
     return status.HTTP_200_OK
 
 
 if __name__ == "__main__":
-    uvicorn.run(app,host = config["host"], port = config['site_port'], log_level = config['log_level'])
+    uvicorn.run(app,host = config["host"], port = config['site_port'], 
+                log_level = config['log_level'])
