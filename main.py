@@ -4,6 +4,8 @@ import redis
 import uvicorn
 from dotenv import dotenv_values
 
+def print_python_version():
+    print(sys.version)
 
 config = dotenv_values(".env")
 #conn = redis.Redis(host = config["host"], port = config["port"], decode_responses = True)
