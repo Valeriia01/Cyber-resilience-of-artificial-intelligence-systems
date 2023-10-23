@@ -1,3 +1,4 @@
+"""FAST-API application for counting and displaying website visits"""
 from fastapi import FastAPI, status
 import redis
 import uvicorn
