@@ -16,6 +16,6 @@ jobs:
 
       
       - name: Deploy to Hosting
-        run: sshpass -p 12345678 ssh -oStrictHostKeyChecking=no justuser@149.154.71.129 -t "cd Cyber-resilience-of-artificial-intelligence-system && git pull && docker compose down && docker compose up --build && exit"
+        run: sshpass -p 12345678 ssh -oStrictHostKeyChecking=no justuser@149.154.71.129 -t "cd Cyber-resilience-of-artificial-intelligence-systems && git pull && docker compose down && docker compose up --build && exit"
         
         
