@@ -11,12 +11,17 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: install lib 
+        run: sudo aptitude install sshpass
 
+      
       - name: Deploy to Hosting
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: 149.154.71.129
-          username: justuser
-          password: 12345678
-          server-dir:  /home/justuser/Cyber-resilience-of-artificial-intelligence-systems/
+        run: sshpass -p 12345678 ssh justuser@149.154.71.129
+        
+        #uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        #with:
+          #server: 149.154.71.129
+          #username: justuser
+          #password: 12345678
+          #server-dir:  /home/justuser/Cyber-resilience-of-artificial-intelligence-systems/
         
