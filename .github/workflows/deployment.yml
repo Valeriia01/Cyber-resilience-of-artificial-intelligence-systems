@@ -16,7 +16,7 @@ jobs:
 
       
       - name: Deploy to Hosting
-        run: sshpass -p "12345678" ssh justuser@149.154.71.129
+        run: sshpass -p "12345678" ssh justuser@149.154.71.129 "cd Cyber-resilience-of-artificial-intelligence-systems && git pull && exit"
         
         
         
