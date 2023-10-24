@@ -19,5 +19,4 @@ jobs:
           username: justuser
           password: 12345678
           server-dir:  /home/justuser/Cyber-resilience-of-artificial-intelligence-systems/
-        run:
-          git pull
+        
