@@ -1,6 +1,6 @@
 """FAST-API application for counting and displaying website visits"""
 import logging
-import os 
+import os
 from fastapi import FastAPI, status
 import redis
 import uvicorn
@@ -28,7 +28,7 @@ app = FastAPI()
 @app.get('/show/{web_host}')
 def show(web_host):
     """function to display the number of visits""" 
-    logger.info('Displaying info about %s', web_host) 
+    logger.info('Displaying info about %s', web_host)
     return {conn.get(web_host)}
 
 
