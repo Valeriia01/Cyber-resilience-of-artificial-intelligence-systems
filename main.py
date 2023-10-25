@@ -6,8 +6,8 @@ from dotenv import dotenv_values
 
 
 config = dotenv_values(".env")
-#conn = redis.Redis(host = config["host"], port = config["port"], decode_responses = True)
-conn = redis.from_url(f'redis://{config["host"]}:{config["port"]}')
+#conn = redis.Redis(host = config["host_redis"], port = config["port_redis"], decode_responses = True)
+conn = redis.from_url(f'redis://{config["host_redis"]}:{config["port_redis"]}')
 
 app = FastAPI()
 
@@ -26,5 +26,5 @@ def visit(web_host):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app,host = config["host"], port = config['site_port'],
+    uvicorn.run(app,host = config["host_app"], port = config['site_port'],
                 log_level = config['log_level'])
