@@ -27,7 +27,7 @@ app = FastAPI()
 
 @app.get('/show/{web_host}')
 def show(web_host):
-    """function to display the number of visits"""
+    """function to display the number of visits""" 
     logger.info('Displaying info about %s', web_host) 
     return {conn.get(web_host)}
 
