@@ -10,8 +10,8 @@ logger = logging.getLogger('informing')
 logger.setLevel(logging.INFO)
 fh = logging.FileHandler('site_informing.log')
 fh.setLevel(logging.INFO)
-formatstr = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-formatter = logging.Formatter(formatstr)
+FORMATSTR = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+formatter = logging.Formatter(FORMATSTR)
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 logger.info('RESTARTED')
@@ -29,7 +29,7 @@ app = FastAPI()
 @app.get('/show/{web_host}')
 def show(web_host):
     """function to display the number of visits"""
-    logger.info('Displaying info about %s' %web_host) 
+    logger.info('Displaying info about %s', web_host) 
     return {conn.get(web_host)}
 
 
@@ -37,7 +37,7 @@ def show(web_host):
 def visit(web_host):
     """increment function hkjsfadhjsdhjsdhj"""
     conn.incr(web_host)
-    logger.info('Visiting %s' %web_host)
+    logger.info('Visiting %s', web_host)
     return status.HTTP_200_OK
 
 
