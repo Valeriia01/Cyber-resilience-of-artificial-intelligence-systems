@@ -1,10 +1,10 @@
 """FAST-API application for counting and displaying website visits"""
+import logging
+import os 
 from fastapi import FastAPI, status
 import redis
 import uvicorn
 from dotenv import dotenv_values, load_dotenv
-import logging
-import os 
 
 
 
@@ -20,9 +20,9 @@ app = FastAPI()
 
 @app.get('/show/{web_host}')
 def show(web_host):
-   """function to display the number of visits"""
-   logger.info(f'Displaying info about {web_host}') 
-   return {conn.get(web_host)}
+    """function to display the number of visits"""
+    logger.info(f'Displaying info about {web_host}') 
+    return {conn.get(web_host)}
 
 
 @app.get('/visit/{web_host}')
