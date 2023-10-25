@@ -20,7 +20,6 @@ config = {
     **dotenv_values(".env"),  # load sensitive variables
     **os.environ,  # override loaded values with environment variables
 }
-#conn = redis.Redis(host = config["host_redis"], port = config["port_redis"], decode_responses = True)
 conn = redis.from_url(f'redis://{config["host_redis"]}:{config["port_redis"]}')
 
 app = FastAPI()
