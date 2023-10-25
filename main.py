@@ -2,7 +2,9 @@
 from fastapi import FastAPI, status
 import redis
 import uvicorn
-from dotenv import dotenv_values
+from dotenv import dotenv_values, load_dotenv
+import os 
+
 
 
 config = {
