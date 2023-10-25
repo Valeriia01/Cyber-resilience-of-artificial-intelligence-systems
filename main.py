@@ -31,5 +31,5 @@ def visit(web_host):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app,host = config["host_app"], port = config['site_port'],
+    uvicorn.run(app,host = config["host_app"], port = int(config['site_port']),
                 log_level = config['log_level'])
